@@ -1,0 +1,236 @@
+body {
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    line-height: 1.6; /*Espaçamento entre linhas para melhor legibilidade*/
+    color: #2e2e2e;
+    background-color: #fff; 
+    padding-top: 60px; /*Espaço no topo para compensar o header fixo, evitando que o conteúdo seja oculto*/
+}
+
+/*Estilização da navbar, que é a barra de navegação que fica fixa no topo*/
+.navbar {
+    background: #4d3fd3; 
+    color: #ffffff; 
+    padding: 1rem; 
+    display: flex; /*Usa flexbox para alinhar itens*/
+    justify-content: space-between; 
+    align-items: center; 
+    position: fixed; /*Fixa o navbar no topo ao rolar*/
+    top: 0; 
+    z-index: 1000; /*Garante que fique acima de outros elementos*/
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.logo { /*Onde diz meu portfólio no canto superior esquerdo, que poderia ser substituído por uma logo*/
+    font-size: 1.5rem; 
+    font-weight: bold; 
+}
+
+/*Estilização a lista de links de navegação*/
+.nav-links {
+    list-style: none; /*Remove marcadores da lista*/
+    display: flex;
+    gap: 1.5rem; 
+    margin: 0;
+    padding: 0; 
+}
+
+/*Estilização dos links dentro da navegação*/
+.nav-links a {
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 1rem; 
+}
+
+/*Efeito hover nos links da navegação*/
+.nav-links a:hover {
+    text-decoration: underline; 
+}
+
+/*Estilização do botão de toggle do menu (visível em telas menores) */
+.menu-toggle {
+    display: none; /* Oculta por padrão (aparece em telas menores) */
+    font-size: 1.5rem; 
+    cursor: pointer; /*Muda o cursor para indicar interatividade*/
+}
+
+/*Seções*/
+.section {
+    padding: 2rem 1rem; 
+    text-align: center; 
+}
+
+/*Estilização da seção hero (seção inicial) */
+.hero {
+    background: #e7e8ff; 
+    padding: 4rem 1rem; 
+}
+
+.hero h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 1rem;
+}
+
+/*Estilização do conteúdo da seção "Sobre"*/
+.about-content {
+    max-width: 800px; 
+    margin: 0 auto; 
+    text-align: left;
+}
+
+/*Seção Habilidades*/
+.skills-content {
+    max-width: 800px;
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+/* Estilização da lista de habilidades*/
+.skills-list {
+    list-style: none;
+    padding: 0; 
+    display: flex; 
+    flex-wrap: wrap; /*Permite que os itens quebrem para a próxima linha se necessário*/
+    justify-content: center; 
+    gap: 1rem; 
+}
+
+/* Estilização de cada item da lista de habilidades*/
+.skills-list li {
+    background: #4d3fd3; 
+    padding: 0.5rem 1rem; 
+    border-radius: 4px; 
+    color: #e7e8ff; 
+    font-weight: bold; 
+    text-align: center;
+}
+
+/*Grid de Projetos*/
+/*Estilização do grid que contém os cartões de projetos*/
+.project-grid {
+    display: grid; 
+    gap: 1.5rem; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/*Estilização de cada cartão de projeto*/
+.project-card {
+    background: #fff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    padding: 1rem; 
+    text-align: center; 
+    min-height: 400px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+/*Estilização das imagens dentro dos cartões de projeto */
+.project-card img {
+    max-width: 100%; 
+    width: 100%; 
+    max-height: 200px; 
+    object-fit: cover; 
+    border-radius: 4px; 
+}
+
+/*Estilização dos títulos dentro dos cartões de projeto */
+.project-card h3 {
+    margin: 0.5rem 0; 
+}
+
+/*Links dos Projetos*/
+.project-links {
+    margin-top: 1rem; 
+    display: flex; 
+    flex-direction: column; /*Organiza os links em coluna*/
+    justify-content: center; 
+    gap: 0.5rem; 
+    width: 100%; 
+}
+
+/*Estilização dos links individuais dos projetos */
+.project-link {
+    display: block; /*Torna o link um bloco */
+    padding: 0.3rem 0.8rem; 
+    background-color: #4d3fd3; 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    font-size: 0.8rem; 
+    width: fit-content; 
+    margin: 0 auto; 
+}
+
+/*Efeito hover nos links dos projetos */
+.project-link:hover {
+    background-color: #4d3fd3; 
+}
+
+/* Rodapé */
+footer {
+    background: #4d3fd3; 
+    color: #fff; 
+    text-align: center; 
+    padding: 1rem; 
+    margin-top: 2rem;
+}
+
+/* Responsividade */
+/*Regras para telas maiores ou iguais a 600px*/
+@media (min-width: 600px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr); /*Força 3 colunas no grid de projetos */
+    }
+}
+
+/*Regras para telas até 500px (responsividade inicial) */
+@media (max-width: 500px) {
+    .nav-links {
+        display: none; 
+        flex-direction: column; 
+        position: absolute;
+        top: 60px; 
+        left: 0; 
+        width: 100%;
+        background: #4d3fd3; 
+        padding: 1rem; 
+        box-sizing: border-box; 
+    }
+
+    .nav-links.active {
+        display: flex; /*Mostra os links quando o toggle é ativado*/
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de toggle em telas menores*/
+    }
+
+    .hero h1 {
+        font-size: 2rem; 
+    }
+
+    .about-content {
+        text-align: center; 
+
+    .project-grid {
+        grid-template-columns: 1fr; /*Empilha os projetos em uma coluna */
+    }
+
+    .project-card {
+        min-height: 350px; 
+    }
+
+    .project-card img {
+        max-height: 150px;
+    }
+
+    .skills-list {
+        display: grid; /*Muda para grid*/
+        grid-template-columns: repeat(3, 1fr); /*3 colunas para habilidades */
+    }
+}
+}
